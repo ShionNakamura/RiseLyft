@@ -7,12 +7,59 @@
 
 import SwiftUI
 
+
 struct ListView: View {
+
+    
+    @EnvironmentObject var listViewModel: ListViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            if listViewModel.items.isEmpty{
+                NoItemView()
+            }
+            else{
+                List{
+                    ForEach(listViewModel.items) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
+                                withAnimation(.linear){
+                                    listViewModel.updateItem(item: item)
+                                }
+                            }
+                              }
+                    .onDelete(perform: listViewModel.deleteItem)
+                    .onMove(perform: listViewModel.moveItem)
+                }
+            }
+        }
+       
+        .navigationTitle("Workout List 🏋️‍♀️")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                if !listViewModel.items.isEmpty{
+                    EditButton()
+                }
+
+                
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink("追加", destination: AddView())
+            }
+        }
     }
+    
+  
+    
+ 
 }
 
 #Preview {
-    ListView()
+    NavigationStack{
+        ListView()
+    }
+    .environmentObject(ListViewModel())
+
 }
+
+

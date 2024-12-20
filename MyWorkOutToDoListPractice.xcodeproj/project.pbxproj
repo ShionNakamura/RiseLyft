@@ -187,11 +187,12 @@
 				};
 			};
 			buildConfigurationList = 16DCAF6F2D1543E300C4BB66 /* Build configuration list for PBXProject "MyWorkOutToDoListPractice" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 16DCAF6B2D1543E300C4BB66;
 			minimizedProjectReferenceProxies = 1;
