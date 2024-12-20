@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		16DCAF852D1543E600C4BB66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16DCAF6C2D1543E300C4BB66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16DCAF732D1543E300C4BB66;
+			remoteInfo = MyWorkOutToDoListPractice;
+		};
+		16DCAF8F2D1543E700C4BB66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16DCAF6C2D1543E300C4BB66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16DCAF732D1543E300C4BB66;
+			remoteInfo = MyWorkOutToDoListPractice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16DCAF742D1543E300C4BB66 /* MyWorkOutToDoListPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWorkOutToDoListPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16DCAF842D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWorkOutToDoListPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16DCAF8E2D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWorkOutToDoListPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		16DCAF762D1543E300C4BB66 /* MyWorkOutToDoListPractice */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MyWorkOutToDoListPractice;
+			sourceTree = "<group>";
+		};
+		16DCAF872D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MyWorkOutToDoListPracticeTests;
+			sourceTree = "<group>";
+		};
+		16DCAF912D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MyWorkOutToDoListPracticeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16DCAF712D1543E300C4BB66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16DCAF812D1543E600C4BB66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16DCAF8B2D1543E700C4BB66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16DCAF6B2D1543E300C4BB66 = {
+			isa = PBXGroup;
+			children = (
+				16DCAF762D1543E300C4BB66 /* MyWorkOutToDoListPractice */,
+				16DCAF872D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests */,
+				16DCAF912D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests */,
+				16DCAF752D1543E300C4BB66 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16DCAF752D1543E300C4BB66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16DCAF742D1543E300C4BB66 /* MyWorkOutToDoListPractice.app */,
+				16DCAF842D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests.xctest */,
+				16DCAF8E2D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16DCAF732D1543E300C4BB66 /* MyWorkOutToDoListPractice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16DCAF982D1543E700C4BB66 /* Build configuration list for PBXNativeTarget "MyWorkOutToDoListPractice" */;
+			buildPhases = (
+				16DCAF702D1543E300C4BB66 /* Sources */,
+				16DCAF712D1543E300C4BB66 /* Frameworks */,
+				16DCAF722D1543E300C4BB66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				16DCAF762D1543E300C4BB66 /* MyWorkOutToDoListPractice */,
+			);
+			name = MyWorkOutToDoListPractice;
+			packageProductDependencies = (
+			);
+			productName = MyWorkOutToDoListPractice;
+			productReference = 16DCAF742D1543E300C4BB66 /* MyWorkOutToDoListPractice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		16DCAF832D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16DCAF9B2D1543E700C4BB66 /* Build configuration list for PBXNativeTarget "MyWorkOutToDoListPracticeTests" */;
+			buildPhases = (
+				16DCAF802D1543E600C4BB66 /* Sources */,
+				16DCAF812D1543E600C4BB66 /* Frameworks */,
+				16DCAF822D1543E600C4BB66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16DCAF862D1543E600C4BB66 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				16DCAF872D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests */,
+			);
+			name = MyWorkOutToDoListPracticeTests;
+			packageProductDependencies = (
+			);
+			productName = MyWorkOutToDoListPracticeTests;
+			productReference = 16DCAF842D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		16DCAF8D2D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16DCAF9E2D1543E700C4BB66 /* Build configuration list for PBXNativeTarget "MyWorkOutToDoListPracticeUITests" */;
+			buildPhases = (
+				16DCAF8A2D1543E700C4BB66 /* Sources */,
+				16DCAF8B2D1543E700C4BB66 /* Frameworks */,
+				16DCAF8C2D1543E700C4BB66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16DCAF902D1543E700C4BB66 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				16DCAF912D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests */,
+			);
+			name = MyWorkOutToDoListPracticeUITests;
+			packageProductDependencies = (
+			);
+			productName = MyWorkOutToDoListPracticeUITests;
+			productReference = 16DCAF8E2D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16DCAF6C2D1543E300C4BB66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					16DCAF732D1543E300C4BB66 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					16DCAF832D1543E600C4BB66 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 16DCAF732D1543E300C4BB66;
+					};
+					16DCAF8D2D1543E700C4BB66 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 16DCAF732D1543E300C4BB66;
+					};
+				};
+			};
+			buildConfigurationList = 16DCAF6F2D1543E300C4BB66 /* Build configuration list for PBXProject "MyWorkOutToDoListPractice" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16DCAF6B2D1543E300C4BB66;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 16DCAF752D1543E300C4BB66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16DCAF732D1543E300C4BB66 /* MyWorkOutToDoListPractice */,
+				16DCAF832D1543E600C4BB66 /* MyWorkOutToDoListPracticeTests */,
+				16DCAF8D2D1543E700C4BB66 /* MyWorkOutToDoListPracticeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16DCAF722D1543E300C4BB66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16DCAF822D1543E600C4BB66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16DCAF8C2D1543E700C4BB66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16DCAF702D1543E300C4BB66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16DCAF802D1543E600C4BB66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16DCAF8A2D1543E700C4BB66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16DCAF862D1543E600C4BB66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16DCAF732D1543E300C4BB66 /* MyWorkOutToDoListPractice */;
+			targetProxy = 16DCAF852D1543E600C4BB66 /* PBXContainerItemProxy */;
+		};
+		16DCAF902D1543E700C4BB66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16DCAF732D1543E300C4BB66 /* MyWorkOutToDoListPractice */;
+			targetProxy = 16DCAF8F2D1543E700C4BB66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16DCAF962D1543E700C4BB66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		16DCAF972D1543E700C4BB66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16DCAF992D1543E700C4BB66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyWorkOutToDoListPractice/Preview Content\"";
+				DEVELOPMENT_TEAM = 55WCKK3Y95;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ShionNakamura.MyWorkOutToDoListPractice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16DCAF9A2D1543E700C4BB66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyWorkOutToDoListPractice/Preview Content\"";
+				DEVELOPMENT_TEAM = 55WCKK3Y95;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ShionNakamura.MyWorkOutToDoListPractice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		16DCAF9C2D1543E700C4BB66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55WCKK3Y95;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ShionNakamura.MyWorkOutToDoListPracticeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyWorkOutToDoListPractice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyWorkOutToDoListPractice";
+			};
+			name = Debug;
+		};
+		16DCAF9D2D1543E700C4BB66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55WCKK3Y95;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ShionNakamura.MyWorkOutToDoListPracticeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyWorkOutToDoListPractice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MyWorkOutToDoListPractice";
+			};
+			name = Release;
+		};
+		16DCAF9F2D1543E700C4BB66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55WCKK3Y95;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ShionNakamura.MyWorkOutToDoListPracticeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyWorkOutToDoListPractice;
+			};
+			name = Debug;
+		};
+		16DCAFA02D1543E700C4BB66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55WCKK3Y95;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ShionNakamura.MyWorkOutToDoListPracticeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyWorkOutToDoListPractice;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16DCAF6F2D1543E300C4BB66 /* Build configuration list for PBXProject "MyWorkOutToDoListPractice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16DCAF962D1543E700C4BB66 /* Debug */,
+				16DCAF972D1543E700C4BB66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16DCAF982D1543E700C4BB66 /* Build configuration list for PBXNativeTarget "MyWorkOutToDoListPractice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16DCAF992D1543E700C4BB66 /* Debug */,
+				16DCAF9A2D1543E700C4BB66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16DCAF9B2D1543E700C4BB66 /* Build configuration list for PBXNativeTarget "MyWorkOutToDoListPracticeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16DCAF9C2D1543E700C4BB66 /* Debug */,
+				16DCAF9D2D1543E700C4BB66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16DCAF9E2D1543E700C4BB66 /* Build configuration list for PBXNativeTarget "MyWorkOutToDoListPracticeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16DCAF9F2D1543E700C4BB66 /* Debug */,
+				16DCAFA02D1543E700C4BB66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16DCAF6C2D1543E300C4BB66 /* Project object */;
+}
