@@ -19,9 +19,9 @@ struct AddView: View {
         ScrollView{
             TextField("メニューを追加する", text: $textField)
                 .padding(.horizontal)
-                         .frame(height: 55)
-                         .background(Color(.gray).opacity(0.2))
-                         .cornerRadius(10)
+                .frame(height: 55)
+                .background(Color(.gray).opacity(0.2))
+                .cornerRadius(10)
             Button {
                 saveButtonPressed()
             } label: {
@@ -33,7 +33,7 @@ struct AddView: View {
                     .background(Color.accentColor)
                     .cornerRadius(10)
             }
-
+            .padding()
         }
         .navigationTitle("種目")
         .alert(isPresented: $showAlert) {
@@ -43,7 +43,7 @@ struct AddView: View {
     
     func saveButtonPressed(){
         if textIsAppropiate(){
-            listViewModel.addItem(title: textField)
+            listViewModel.addItem(title: textField,date: Date())
             presentationMode.wrappedValue.dismiss()
 
         }

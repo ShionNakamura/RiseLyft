@@ -22,6 +22,6 @@ struct ListRowView: View {
 }
 
 #Preview {
-    ListRowView(item: ItemModel(title: "This is something", isCompleted: false))
-    ListRowView(item: ItemModel(title: "This is something", isCompleted: true))
+    ListRowView(item: ItemModel(title: "This is something", isCompleted: false,date: Date(),setCount: 1))
+    ListRowView(item: ItemModel(title: "This is something", isCompleted: true,date: Date(),setCount: 1))
 }

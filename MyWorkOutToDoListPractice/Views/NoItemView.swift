@@ -13,14 +13,14 @@ struct NoItemView: View {
     
     var body: some View {
         ScrollView{
-            VStack(spacing: 10){
+            VStack(spacing: 15){
                 Text("メニューがありません😭")
                     .font(.title)
                     .fontWeight(.semibold)
-                Text("筋トレのメニューを追加してください")
+                Text("筋トレのメニューを作成してください")
                     .padding(.bottom, 10)
                 NavigationLink {
-                    AddView()
+                    WorkOutMenuView()
                 } label: {
                     Text("メニューを追加する")
                         .foregroundStyle(.white)
