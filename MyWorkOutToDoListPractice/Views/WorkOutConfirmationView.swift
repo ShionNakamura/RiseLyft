@@ -26,7 +26,7 @@ struct WorkOutConfirmationView: View {
         NavigationStack{
             ZStack{
                 VStack {
-                    Text("あなたが選んだ種目")
+                    Text("あなたが選んだ本日の種目")
                         .font(.headline)
                         .fontWeight(.bold)
                         .padding(.top, 50)
@@ -78,7 +78,6 @@ struct WorkOutConfirmationView: View {
                             .navigationBarBackButtonHidden(true)
                                    }
                     .alert( isPresented:$showConfirmationAlert ){
-                        
                                Alert(
                                    title: Text("最終確認"),
                                    message: Text("全てのご自身の情報が間違ってないですか。"),

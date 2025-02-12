@@ -50,8 +50,8 @@ struct AddView: View {
     }
     
     func textIsAppropiate()->Bool{
-        if textField.count < 3{
-            alertTitle = "uuuuu gotta add 3 characters longs"
+        if textField.count < 1{
+            alertTitle = "入力してください"
             showAlert.toggle()
             return false
         }

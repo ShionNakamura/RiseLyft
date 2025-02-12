@@ -1,4 +1,4 @@
-//
+
 //  ListViewModel.swift
 //  MyWorkOutToDoListPractice
 //
@@ -16,55 +16,83 @@ class ListViewModel:ObservableObject{
         }
     }
     
-    let keyItem = "Key_item"
     
-    @Published var showTime:Bool = false
+    @Published var intervalTime: Int = 60 {
+           didSet {
+               saveTimer()
+             
+           }
+       }
+    
+    let keyItem = "Key_item"
+    var defaultIntervalTime: Int = 60 // Stores the custom interval
 
+    @Published var showTime:Bool = false
     @Published var secondsTime = 0
     @Published var timer: Timer?
     
-    
     @Published var breakTime:Bool = false
-    
-    @Published var intervalTime: Int = 60
     @Published var intervalTimer: Timer?
-
+    @Published  var isSetComplete: Bool = false
+    @Published  var kg: String = ""
+    @Published  var reps: String = ""
+    
     init(){
         getItem()
+        loadTimer()
+
     }
     
-    func getItem(){
-        
-//        let newItem = [
-//            ItemModel(title: "This is the first Item", isCompleted: false),
-//            ItemModel(title: "This is the second Item", isCompleted: true),
-//            ItemModel(title: "This is the second Item", isCompleted: true)
-//        ]
-//        items.append(contentsOf: newItem)
-        guard let data = UserDefaults.standard.data(forKey: keyItem)else{return}
-        guard let saveItem = try?  JSONDecoder().decode([ItemModel].self, from: data)else{return}
-        self.items = saveItem
-        
+//    func getItem(){
+//        
+////        let newItem = [
+////            ItemModel(title: "This is the first Item", isCompleted: false),
+////            ItemModel(title: "This is the second Item", isCompleted: true),
+////            ItemModel(title: "This is the second Item", isCompleted: true)
+////        ]
+////        items.append(contentsOf: newItem)
+//        guard let data = UserDefaults.standard.data(forKey: keyItem)else{return}
+//        guard let saveItem = try?  JSONDecoder().decode([ItemModel].self, from: data)else{return}
+//        self.items = saveItem
+//    }
+    
+    
+    func getItem() {
+        DispatchQueue.global(qos: .background).async {
+            if let data = UserDefaults.standard.data(forKey: self.keyItem) {
+                print("Data size: \(data.count) bytes") // Check size
+                if let savedItems = try? JSONDecoder().decode([ItemModel].self, from: data) {
+                    DispatchQueue.main.async {
+                        self.items = savedItems
+                    }
+                }
+            }
+        }
     }
     
     // CRUD
-      func addItem(_ item: ItemModel) {
+    func addItem(_ item: ItemModel) {
           items.append(item)
       }
+     
     
     func deleteItem(indexSet: IndexSet){
         items.remove(atOffsets: indexSet)
     }
     
+    
     func moveItem(indexSet: IndexSet, to: Int){
         items.move(fromOffsets: indexSet, toOffset: to)
+        saveItem()
     }
+    
     
     func addItem(title:String,date:Date){
         let newItem = ItemModel(title: title, isCompleted: false, date: date,setCount: 1)
         items.append(newItem)
     }
   
+    
     func updateItem(item: ItemModel) {
         if let index = items.firstIndex(where: {existingItem in
             existingItem.id == item.id
@@ -73,7 +101,7 @@ class ListViewModel:ObservableObject{
         }
     }
     
-    // learn this again 
+    // learn this again
     
     func filterItem(_ date: Date)->[ItemModel]{
         items.filter{
@@ -89,6 +117,7 @@ class ListViewModel:ObservableObject{
             UserDefaults.standard.set(encodeData, forKey: keyItem)
         }
     }
+ 
 
     
     // date
@@ -108,27 +137,48 @@ class ListViewModel:ObservableObject{
         }
     }
 
-    func decreaseSetCount(for item: ItemModel) {
-        if let index = items.firstIndex(where: { $0.id == item.id }), items[index].setCount > 1 {
-            items[index].sets.removeLast()
-            items[index].setCount -= 1
+    
+    func decreaseSetCount(for item: ItemModel, at index: Int) {
+        if index < item.sets.count {
+            var updatedItem = item
+            updatedItem.sets.remove(at: index) // Remove the set at the specified index
+            updatedItem.setCount -= 1 // Update the set count
+            if let itemIndex = items.firstIndex(where: { $0.id == item.id }) {
+                items[itemIndex] = updatedItem // Update the list with the modified item
+            }
+        }
+    }
+
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // break time between sets
+    func startIntervalTimer() {
+        intervalTimer?.invalidate() // Reset any existing timer
+        breakTime = true // Ensure this is set first
+        intervalTime = defaultIntervalTime // Reset interval before starting
+        intervalTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            DispatchQueue.main.async { // Ensure UI updates properly
+                if self.intervalTime > 0 {
+                    self.intervalTime -= 1
+                } else {
+                    self.skipBreak()
+                }
+            }
         }
     }
     
-    // break time between sets
-    func startIntervalTimer() {
-        
-        intervalTimer?.invalidate() // Reset any existing timer
-        intervalTime = 60 // Set break duration (change as needed)
-        if !breakTime { // Only set breakTime if it's not already true
-               breakTime = true
-           }
-        showTime = true
+    func restartTimer(){
+//        timer?.invalidate() // Stop any existing timer
         intervalTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            if self.intervalTime > 0 {
-                self.intervalTime -= 1 // Decrease break time
-            } else {
-                self.stopIntervalTimer() // Stop when time reaches 0
+            DispatchQueue.main.async { // Ensure UI updates properly
+                if self.intervalTime > 0 {
+                    self.intervalTime -= 1
+                } else {
+                    self.stopIntervalTimer() // Stop when time reaches 0
+                    self.saveTimer()
+                    self.skipBreak()
+                }
             }
         }
     }
@@ -136,19 +186,25 @@ class ListViewModel:ObservableObject{
     func stopIntervalTimer() {
         intervalTimer?.invalidate()
         intervalTimer = nil
-        breakTime = false // Hide break UI
+        
     }
     
     func skipBreak() {
         stopIntervalTimer()
         showTime = true // Resume workout
+        breakTime = false
+//
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+               NotificationCenter.default.post(name: NSNotification.Name("DismissBreakSheet"), object: nil)
+           }
+
     }
     
     func decreaseTimerSec(){
         if intervalTime > 10 { // Prevents negative values
               intervalTime -= 10
           } else {
-              intervalTime = 0
+              self.skipBreak()
           }
     }
     
@@ -161,11 +217,29 @@ class ListViewModel:ObservableObject{
               intervalTime -= 60
           } else {
               intervalTime = 0
+              self.showTime = true
+              self.breakTime = false
           }
     }
+    
     func  increaseTimerMin(){
         intervalTime += 60
     }
+
+    
+    func saveTimer() {
+          UserDefaults.standard.set(intervalTime, forKey: "savedBreakTime")
+      }
+    
+    
+    func loadTimer() {
+        if let savedTime = UserDefaults.standard.value(forKey: "savedBreakTime") as? Int {
+            intervalTime = savedTime
+        }
+    }
+    
+///////////////////////////////////////////////////  /////////////////////////////////////////////////////
+
     
     func formattedIntervalTime() -> String {
         let minutes = intervalTime / 60
@@ -192,6 +266,20 @@ class ListViewModel:ObservableObject{
             stopTimer()
             secondsTime = 0
         }
+    
+    
+
+    
+    func prepareForReset() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+              self.items.removeAll()
+              self.resetTimer()
+              self.showTime = false
+          }
+    }
+
+    
+ 
     
    
 }

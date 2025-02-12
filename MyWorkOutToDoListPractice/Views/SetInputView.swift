@@ -5,97 +5,161 @@ struct SetInputView: View {
     let item: ItemModel
     let setIndex: Int
 
-    @State private var kg: String = ""
-    @State private var reps: String = ""
+    @State  var kg: String = ""
+    @State  var reps: String = ""
     @State private var isSetComplete: Bool = false
+    @State private var showSheet: Bool = false
+    
+
+    @State var textFieldReps: Bool = false
+    @State var textFieldKg: Bool = false
+
+    @State var showAlertForRepsAndKg: Bool = false
+    @State var alertTitle: String = ""
+    
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        HStack(spacing: 15) {
+        HStack(spacing: 10) {
             
-            Text("セット \(setIndex + 1)")
-                .font(.title3)
+            Text(" セット \(setIndex + 1)")
+                .font(.body)
                 .fontWeight(.semibold)
                 .frame(minWidth: 70, alignment: .leading)
+//                .padding(.leading, 20)
+//            
             
-          
-
+            
             // Weight Input
-            HStack(spacing: 0){
+            HStack(spacing: 5){
                 Spacer()
+                if listViewModel.showTime {
+                                   // Weight input
+                    TextField("重量", text:$kg)
+                                       .keyboardType(.decimalPad)
+                                       .padding(.horizontal)
+                                       .frame(height: 35)
+                                       .frame(width: 90)
+                                       .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.2)))
+                                       .onChange(of: kg) { oldValue, newValue in
+                                           if !newValue.isEmpty {
+                                               updateModel()
+                                               
+                                           }
+                                           
+                                       }
+                                      
+                                   Text("kg")
+                                       .font(.subheadline)
+                                       .fontWeight(.bold)
+                                       .frame(minWidth: 20)
 
-                TextField("重量", text: $kg,onCommit: {
-                    updateModel()
-                })
-                    .keyboardType(.decimalPad)
-                    .padding(.horizontal)
-                    .frame(height: 35)
-                    .frame(width: 65)
-                    .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.2)))
+                                   
+                                   // Reps input
+                    TextField("回数", text: $reps)
+                                       .keyboardType(.numberPad)
+                                       .padding(.horizontal)
+                                       .frame(height: 35)
+                                       .frame(width: 90)
+                                       .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.2)))
+                                       .onChange(of: reps) { oldValue, newValue in
+                                           if !newValue.isEmpty {
+                                               updateModel()
+                                           }
+                                       }
 
-                Text("kg")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .frame(minWidth: 30)
-                Spacer()
-                TextField("回数", text: $reps, onCommit: {
-                    updateModel()
-                })
-                    .keyboardType(.numberPad)
-                    .padding(.horizontal)
-                    .frame(height: 35)
-                    .frame(width: 70)
-                    .background(RoundedRectangle(cornerRadius: 5).fill(Color.gray.opacity(0.2)))
-                
-                Text("回")
-                    .font(.subheadline)
-                    .fontWeight(.bold)
-                    .frame(minWidth: 30)
-                    .padding(.trailing)
+                                   Text("回")
+                                       .font(.subheadline)
+                                       .fontWeight(.bold)
+                                       .frame(minWidth: 20)
+                               }
             }
-            Button(action: {
+            
+            .alert(isPresented: $showAlertForRepsAndKg) {
+                getAlert()
+            }
+            
+            
+        
+            if !kg.isEmpty && !reps.isEmpty{
                 
-                          isSetComplete.toggle()
-                          toggleSetCompletion()
-              
-                if isSetComplete {
-                    listViewModel.startIntervalTimer()
-                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                           listViewModel.breakTime = true // Ensure delay to avoid reset issues
-                       }
-                   }
+                Button(action: {
                     
+                    if textIsAppropiate(){
+                        isSetComplete.toggle()
+                        saveButtonPressed()
+                        toggleSetCompletion()
+                        if isSetComplete { // Show sheet only when marking as complete
+                            showSheet = true
+                            listViewModel.startIntervalTimer()
+                    }
+                }
+                    
+                })
+                    {
+                    if listViewModel.showTime{
+                        Image(systemName: isSetComplete ? "checkmark.circle.fill" : "circle")
+                            .foregroundColor(isSetComplete ? .green : .gray)
+                            .font(.title3)
+                    }
+                }
+                
+                .buttonStyle(BorderlessButtonStyle()) // Prevents unnecessary button styling
+            }
+            
+      
+                    Image(systemName: "trash")
+                        .font(.title3)
+                        .foregroundStyle(.red)
+                        .onTapGesture {
+                            listViewModel.decreaseSetCount(for: item, at: setIndex)
 
-                      }) {
-                          if listViewModel.showTime{
-                              Image(systemName: isSetComplete ? "checkmark.circle.fill" : "circle")
-                                  .foregroundColor(isSetComplete ? .green : .gray)
-                                  .font(.title2)
-                          }
-                      }
-                      .buttonStyle(BorderlessButtonStyle()) // Prevents unnecessary button styling
-                      .sheet(isPresented: $listViewModel.breakTime) {
-                          BreakPopUpView()
-                      }
-                      
+                        }
+            
+            
         }
+                      
+        
         .padding()
+
         .onAppear {
                     loadData()
                 }
+        .sheet(isPresented: $showSheet) {
+            BreakPopUpView()
+            
+        }
+      
         
         
     }
     
+    func saveButtonPressed(){
+        if textIsAppropiate(){
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
     
-//    private func loadData() {
-//        if let itemIndex = getItemIndex(), setIndex < listViewModel.items[itemIndex].sets.count {
-//            kg = listViewModel.items[itemIndex].sets[setIndex].kg
-//            reps = listViewModel.items[itemIndex].sets[setIndex].reps
-//            isSetComplete = set.setComplete
-//
-//        }
-//    }
     
+    func textIsAppropiate()->Bool{
+        if reps.count > 5 {
+            alertTitle = "回数を5桁以内に入力してください"
+            showAlertForRepsAndKg.toggle()
+            return false
+        }
+        else if kg.count > 5{
+            alertTitle = "重量を5桁以内に入力してください"
+            showAlertForRepsAndKg.toggle()
+            return false
+        }
+        return true
+    }
+    
+    func getAlert()->Alert{
+        return Alert(title: Text(alertTitle))
+    }
+    
+
     
     private func loadData() {
            if let itemIndex = getItemIndex(), setIndex < listViewModel.items[itemIndex].sets.count {
@@ -105,13 +169,7 @@ struct SetInputView: View {
                isSetComplete = set.setComplete
            }
        }
-//
-//    private func updateModel() {
-//           if let itemIndex = getItemIndex(), setIndex < listViewModel.items[itemIndex].sets.count {
-//               listViewModel.items[itemIndex].sets[setIndex].kg = kg
-//               listViewModel.items[itemIndex].sets[setIndex].reps = reps
-//           }
-//       }
+
     
     private func updateModel() {
         if let itemIndex = getItemIndex(), setIndex < listViewModel.items[itemIndex].sets.count {
