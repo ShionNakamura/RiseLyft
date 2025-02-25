@@ -26,15 +26,11 @@ struct SetInputView: View {
                 .font(.body)
                 .fontWeight(.semibold)
                 .frame(minWidth: 70, alignment: .leading)
-//                .padding(.leading, 20)
-//            
             
             
-            // Weight Input
             HStack(spacing: 5){
                 Spacer()
                 if listViewModel.showTime {
-                                   // Weight input
                     TextField("重量", text:$kg)
                                        .keyboardType(.decimalPad)
                                        .padding(.horizontal)
@@ -55,7 +51,6 @@ struct SetInputView: View {
                                        .frame(minWidth: 20)
 
                                    
-                                   // Reps input
                     TextField("回数", text: $reps)
                                        .keyboardType(.numberPad)
                                        .padding(.horizontal)
@@ -89,7 +84,7 @@ struct SetInputView: View {
                         isSetComplete.toggle()
                         saveButtonPressed()
                         toggleSetCompletion()
-                        if isSetComplete { // Show sheet only when marking as complete
+                        if isSetComplete {
                             showSheet = true
                             listViewModel.startIntervalTimer()
                     }
@@ -104,7 +99,7 @@ struct SetInputView: View {
                     }
                 }
                 
-                .buttonStyle(BorderlessButtonStyle()) // Prevents unnecessary button styling
+                .buttonStyle(BorderlessButtonStyle())
             }
             
       
@@ -173,23 +168,22 @@ struct SetInputView: View {
     
     private func updateModel() {
         if let itemIndex = getItemIndex(), setIndex < listViewModel.items[itemIndex].sets.count {
-            var updatedItem = listViewModel.items[itemIndex] // Copy the item
-            updatedItem.sets[setIndex] = SetDetail(kg: kg, reps: reps, setComplete: isSetComplete) // Modify the set
-            listViewModel.items[itemIndex] = updatedItem // Assign the modified item back
+            var updatedItem = listViewModel.items[itemIndex]
+            updatedItem.sets[setIndex] = SetDetail(kg: kg, reps: reps, setComplete: isSetComplete)
+            listViewModel.items[itemIndex] = updatedItem
         }
     }
 
     
     private func toggleSetCompletion() {
         if let itemIndex = getItemIndex(), setIndex < listViewModel.items[itemIndex].sets.count {
-            var updatedItem = listViewModel.items[itemIndex] // Copy item
-            updatedItem.sets[setIndex].setComplete.toggle() // Toggle completion
-            listViewModel.items[itemIndex] = updatedItem // Assign back
+            var updatedItem = listViewModel.items[itemIndex]
+            updatedItem.sets[setIndex].setComplete.toggle()
+            listViewModel.items[itemIndex] = updatedItem
         }
     }
     
     private func getItemIndex() -> Int?{
-        // Find the index of the current item
         return listViewModel.items.firstIndex(where: { $0.id == item.id }) 
     }
 }

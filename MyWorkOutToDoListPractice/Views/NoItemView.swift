@@ -1,9 +1,4 @@
-//
-//  NoItemView.swift
-//  MyWorkOutToDoListPractice
-//
-//  Created by 仲村士苑 on 2024/12/20.
-//
+
 
 import SwiftUI
 
@@ -12,7 +7,7 @@ struct NoItemView: View {
     @EnvironmentObject var listViewModel: ListViewModel
 
     @State var animate: Bool = false
-    @State private var editMode: EditMode = .inactive  // ✅ Added edit mode state
+    @State private var editMode: EditMode = .inactive
 
     
     var body: some View {
@@ -53,7 +48,6 @@ struct NoItemView: View {
             .multilineTextAlignment(.center)
             .padding(40)
             .onAppear {
-//                           deletePastExercises() // ✅ Deletes old workouts when screen appears
                            addAnimation()
                        }        }
         .frame(maxWidth:.infinity, maxHeight: .infinity)
@@ -65,7 +59,6 @@ struct NoItemView: View {
                     editMode = editMode == .active ? .inactive : .active
                 }) {
                     Text(editMode == .active ? "完了" : "編集")
-//                                .foregroundColor(.orange)
                 }
             }
             
@@ -74,18 +67,7 @@ struct NoItemView: View {
             }
         }
     }
-    
-//    func deletePastExercises() {
-//        let today = Calendar.current.startOfDay(for: Date())
-//
-//            DispatchQueue.main.async {
-//                listViewModel.items = listViewModel.items.filter { item in
-//                    let itemDate = Calendar.current.startOfDay(for: item.date)
-//                    return itemDate >= today  // Keep today's and future workouts
-//                }
-//                print("Deleted past workouts. Remaining items: \(listViewModel.items.count)")
-//            }
-//    }
+
 
     
     func addAnimation(){

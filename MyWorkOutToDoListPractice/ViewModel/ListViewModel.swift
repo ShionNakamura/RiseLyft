@@ -25,7 +25,7 @@ class ListViewModel:ObservableObject{
        }
     
     let keyItem = "Key_item"
-    var defaultIntervalTime: Int = 60 // Stores the custom interval
+    var defaultIntervalTime: Int = 60
 
     @Published var showTime:Bool = false
     @Published var secondsTime = 0
@@ -43,24 +43,13 @@ class ListViewModel:ObservableObject{
 
     }
     
-//    func getItem(){
-//        
-////        let newItem = [
-////            ItemModel(title: "This is the first Item", isCompleted: false),
-////            ItemModel(title: "This is the second Item", isCompleted: true),
-////            ItemModel(title: "This is the second Item", isCompleted: true)
-////        ]
-////        items.append(contentsOf: newItem)
-//        guard let data = UserDefaults.standard.data(forKey: keyItem)else{return}
-//        guard let saveItem = try?  JSONDecoder().decode([ItemModel].self, from: data)else{return}
-//        self.items = saveItem
-//    }
+
     
     
     func getItem() {
         DispatchQueue.global(qos: .background).async {
             if let data = UserDefaults.standard.data(forKey: self.keyItem) {
-                print("Data size: \(data.count) bytes") // Check size
+                print("Data size: \(data.count) bytes")
                 if let savedItems = try? JSONDecoder().decode([ItemModel].self, from: data) {
                     DispatchQueue.main.async {
                         self.items = savedItems
@@ -70,7 +59,6 @@ class ListViewModel:ObservableObject{
         }
     }
     
-    // CRUD
     func addItem(_ item: ItemModel) {
           items.append(item)
       }
@@ -101,7 +89,6 @@ class ListViewModel:ObservableObject{
         }
     }
     
-    // learn this again
     
     func filterItem(_ date: Date)->[ItemModel]{
         items.filter{
@@ -120,7 +107,6 @@ class ListViewModel:ObservableObject{
  
 
     
-    // date
     func getFormattedDate() -> String {
            let dateFormatter = DateFormatter()
            dateFormatter.dateStyle = .medium
@@ -129,11 +115,10 @@ class ListViewModel:ObservableObject{
        }
     
     
-    // set increase or descease
     func increaseSetCount(for item: ItemModel) {
         if let index = items.firstIndex(where: { $0.id == item.id }) {
             items[index].sets.append(SetDetail(kg: "", reps: "",setComplete: false))
-            items[index].setCount += 1 // Update the set count
+            items[index].setCount += 1
         }
     }
 
@@ -141,24 +126,22 @@ class ListViewModel:ObservableObject{
     func decreaseSetCount(for item: ItemModel, at index: Int) {
         if index < item.sets.count {
             var updatedItem = item
-            updatedItem.sets.remove(at: index) // Remove the set at the specified index
-            updatedItem.setCount -= 1 // Update the set count
+            updatedItem.sets.remove(at: index)
+            updatedItem.setCount -= 1
             if let itemIndex = items.firstIndex(where: { $0.id == item.id }) {
-                items[itemIndex] = updatedItem // Update the list with the modified item
+                items[itemIndex] = updatedItem
             }
         }
     }
 
     
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // break time between sets
     func startIntervalTimer() {
-        intervalTimer?.invalidate() // Reset any existing timer
-        breakTime = true // Ensure this is set first
-        intervalTime = defaultIntervalTime // Reset interval before starting
+        intervalTimer?.invalidate()
+        breakTime = true
+        intervalTime = defaultIntervalTime
         intervalTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            DispatchQueue.main.async { // Ensure UI updates properly
+            DispatchQueue.main.async {
                 if self.intervalTime > 0 {
                     self.intervalTime -= 1
                 } else {
@@ -169,13 +152,12 @@ class ListViewModel:ObservableObject{
     }
     
     func restartTimer(){
-//        timer?.invalidate() // Stop any existing timer
         intervalTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            DispatchQueue.main.async { // Ensure UI updates properly
+            DispatchQueue.main.async {
                 if self.intervalTime > 0 {
                     self.intervalTime -= 1
                 } else {
-                    self.stopIntervalTimer() // Stop when time reaches 0
+                    self.stopIntervalTimer()
                     self.saveTimer()
                     self.skipBreak()
                 }
@@ -191,9 +173,8 @@ class ListViewModel:ObservableObject{
     
     func skipBreak() {
         stopIntervalTimer()
-        showTime = true // Resume workout
+        showTime = true
         breakTime = false
-//
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                NotificationCenter.default.post(name: NSNotification.Name("DismissBreakSheet"), object: nil)
            }
@@ -201,7 +182,7 @@ class ListViewModel:ObservableObject{
     }
     
     func decreaseTimerSec(){
-        if intervalTime > 10 { // Prevents negative values
+        if intervalTime > 10 {
               intervalTime -= 10
           } else {
               self.skipBreak()
@@ -238,7 +219,6 @@ class ListViewModel:ObservableObject{
         }
     }
     
-///////////////////////////////////////////////////  /////////////////////////////////////////////////////
 
     
     func formattedIntervalTime() -> String {
@@ -248,7 +228,6 @@ class ListViewModel:ObservableObject{
     }
     
     
-    // time duration for workout
     
     func startTimer(){
         timer?.invalidate()
@@ -270,13 +249,13 @@ class ListViewModel:ObservableObject{
     
 
     
-    func prepareForReset() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-              self.items.removeAll()
-              self.resetTimer()
-              self.showTime = false
-          }
-    }
+//    func prepareForReset() {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+//              self.items.removeAll()
+//              self.resetTimer()
+//              self.showTime = false
+//          }
+//    }
 
     
  

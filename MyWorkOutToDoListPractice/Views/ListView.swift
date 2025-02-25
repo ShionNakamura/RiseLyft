@@ -8,7 +8,7 @@ struct ListView: View {
     @State var navigateToBreakTimeView: Bool = false
     @State var navigateToNextView: Bool = false
     @State var showConfirmationAlert: Bool = false
-    @State  var editMode: EditMode = .inactive  // ✅ Added edit mode state
+    @State  var editMode: EditMode = .inactive
     @State var isCollapsed: Bool = false
     var body: some View {
         NavigationStack {
@@ -38,7 +38,6 @@ struct ListView: View {
                     }
                 }
                 
-                // Training duration
                 if listViewModel.showTime {
                     HStack {
                         VStack {
@@ -77,7 +76,6 @@ struct ListView: View {
                     }
                 }
                 
-                // Tab View
                 TabView {
                     NavigationStack {
                         ZStack {
@@ -93,17 +91,14 @@ struct ListView: View {
                                                     .font(.subheadline)
                                                     .fontWeight(.bold)
                                                     .frame(maxWidth: .infinity, alignment: .leading)
-//                                                    .lineLimit(1)
-//                                                    .minimumScaleFactor(0.5)
+
                                                     .onTapGesture {
                                                         withAnimation(.linear) {
                                                             listViewModel.updateItem(item: item)
                                                         }
                                                     }
                                                     
-//                                                Spacer()
-                                                
-                                                // Set count + -
+
                                                 HStack(spacing: 20) {
                                                     Text("セット数 \(item.setCount - 1)")
                                                         .font(.subheadline)
@@ -125,7 +120,7 @@ struct ListView: View {
                                             .padding()
                                             
                                            
-                                            // For each set
+                                        
                                             if !isCollapsed {
                                                 ForEach(Array(item.sets.enumerated()), id: \.offset) { index, set in
                                                     SetInputView(item: item, setIndex: index)
@@ -143,7 +138,6 @@ struct ListView: View {
                                     .onDelete(perform: listViewModel.deleteItem)
                                     .onMove(perform: listViewModel.moveItem)
 
-                                    // ✅ Move enabled by edit mode
                                     
                                     if !listViewModel.items.isEmpty && listViewModel.showTime {
                                         VStack(spacing: 20) {
@@ -215,7 +209,6 @@ struct ListView: View {
                             isCollapsed.toggle()
                         }) {
                             Text(editMode == .active ? "完了" : "編集")
-//                                .foregroundColor(.orange)
                         }
                     }
                     
@@ -228,7 +221,7 @@ struct ListView: View {
             }
         }
        
-        .environment(\.editMode, $editMode)  // ✅ Apply edit mode environment
+        .environment(\.editMode, $editMode)  
        
     }
     

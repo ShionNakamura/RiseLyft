@@ -11,10 +11,10 @@ struct CompleteView: View {
     }
     
     var body: some View {
-        VStack { // 🟢 Wrap the entire UI in a VStack
+        VStack {
             ScrollView {
                 VStack {
-                    // 🎉 Training Completion Header
+                  
                     HStack {
                         Text("🎉トレーニング終了")
                             .font(.largeTitle)
@@ -27,7 +27,7 @@ struct CompleteView: View {
                             .padding(.top, 70)
                     }
                     
-                    // 📌 Workout Completion Time
+                
                     Text("今日のトレーニング達成時間")
                         .font(.title2)
                         .fontWeight(.bold)
@@ -37,7 +37,6 @@ struct CompleteView: View {
                         .font(.largeTitle)
                         .padding(.top, 30)
                     
-                    // ✅ Completed Exercises Section
                     if !completedExercises.isEmpty {
                         Text("達成したエクササイズ")
                             .font(.title2)
@@ -61,7 +60,6 @@ struct CompleteView: View {
                                     .background(Color.orange)
                                     .cornerRadius(8)
                                     
-                                    // Calculate total kg lifted
                                     let totalKg = item.sets.reduce(0) { total, set in
                                         (Double(set.kg) ?? 0) * (Double(set.reps) ?? 0) + total
                                     }
@@ -71,7 +69,6 @@ struct CompleteView: View {
                                         .fontWeight(.bold)
                                         .padding(.bottom, 5)
                                     
-                                    // Display each set's weight and reps
                                     ForEach(Array(item.sets.enumerated()), id: \.offset) { index, set in
                                         HStack {
                                             Text("セット \(index + 1):")
@@ -83,16 +80,13 @@ struct CompleteView: View {
                             }
                             .padding(.horizontal)
                         }
-                        .frame(maxHeight: 200) // Limit height for better UI
+                        .frame(maxHeight: 200)
                     }
                     
-                    // 🔵 Finish Button
                     Button {
                         navigateToNextView = true
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            listViewModel.prepareForReset()
-                        }
+                       
                     } label: {
                         Text("完了")
                             .font(.title2)
@@ -106,7 +100,6 @@ struct CompleteView: View {
                 }
             }
         }
-        // 🟢 Move navigationDestination OUTSIDE of ScrollView
         .navigationDestination(isPresented: $navigateToNextView) {
             NoItemView()
                 .navigationBarBackButtonHidden(true)

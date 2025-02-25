@@ -1,9 +1,4 @@
 
-//  WorkOutConfirmationView.swift
-//  MyWorkOutToDoListPractice
-//
-//  Created by 仲村士苑 on 2025/01/27.
-//
 
 import SwiftUI
 
@@ -61,7 +56,7 @@ struct WorkOutConfirmationView: View {
 
                     
                     Button {
-                        saveExercises() // Call save function
+                        saveExercises()
                         showConfirmationAlert.toggle()
                     } label: {
                         Text("メニューを決定する")
@@ -118,9 +113,8 @@ struct WorkOutConfirmationView: View {
     
     private func saveExercises() {
         let selectedExercises = checkMarks.filter { $0.value }.map { $0.key }
-        // Add each selected exercise to the ListViewModel
         for exercise in selectedExercises {
-            let newItem = ItemModel(title: exercise, isCompleted: false, date: Date(),setCount: 1) // Customize if needed
+            let newItem = ItemModel(title: exercise, isCompleted: false, date: Date(),setCount: 1) 
             listViewModel.addItem(newItem)
         }
     }

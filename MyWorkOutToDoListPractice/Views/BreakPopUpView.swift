@@ -9,27 +9,26 @@ struct BreakPopUpView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .topLeading) { // Align all elements to the top-left
+            ZStack(alignment: .topLeading) {
                 
-                Color.black.opacity(0.8) // Background color (optional)
+                Color.black.opacity(0.8)
                     .ignoresSafeArea()
 
                 VStack(spacing: 20) {
                     
-                    // Top-left close button
                     
                 
                         
                     Button(action: {
                         dismiss()
                     }) {
-                        Image(systemName: "xmark") // Use "xmark" instead of "clear"
+                        Image(systemName: "xmark")
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
                             .padding(20)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading) // Align to top-left
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                    
                     HStack {
@@ -49,7 +48,6 @@ struct BreakPopUpView: View {
                             .padding(.vertical, 30)
                     }
                     
-                    // Buttons Row
                     HStack(spacing: 10) {
                         
                         Button("再開") {
@@ -78,7 +76,6 @@ struct BreakPopUpView: View {
                         .clipShape(Capsule())
                     }
                     
-                    // Timer Adjustment Buttons
                     HStack(spacing: 10) {
                         Button("-1 min") {
                             listViewModel.decreaseTimerMin()
@@ -114,8 +111,8 @@ struct BreakPopUpView: View {
                     }
                     .padding(.horizontal, 10)
                     
-                } // VStack
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) // Aligns everything to the top
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) 
                 
             }
             .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("DismissBreakSheet"))) { _ in
