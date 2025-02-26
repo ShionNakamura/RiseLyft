@@ -53,4 +53,4 @@
 
 Contact Information
 --
-emial: shionnakamura0120@gmail.com
+email: shionnakamura0120@gmail.com
