@@ -30,7 +30,9 @@
 
 デモ動画
 ---
-（ここにデモ動画のリンクや埋め込みを追加）
+
+https://github.com/user-attachments/assets/3604841d-e656-4573-a118-10b9d17c5970
+
 
 
 開発環境
