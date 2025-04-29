@@ -245,13 +245,6 @@ class ListViewModel:ObservableObject{
     
 
     
-//    func prepareForReset() {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//              self.items.removeAll()
-//              self.resetTimer()
-//              self.showTime = false
-//          }
-//    }
 
     
  
