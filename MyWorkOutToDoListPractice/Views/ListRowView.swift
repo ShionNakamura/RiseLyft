@@ -14,7 +14,6 @@ struct ListRowView: View {
                         .foregroundStyle( item.isCompleted ? .green : .red)
                     
                 }
-                
                
                 Text(item.title)
                 

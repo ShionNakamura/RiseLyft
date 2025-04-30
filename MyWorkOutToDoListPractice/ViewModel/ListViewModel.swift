@@ -26,17 +26,15 @@ class ListViewModel:ObservableObject{
     @Published var showTime:Bool = false
     @Published var secondsTime = 0
     @Published var timer: Timer?
-    
     @Published var breakTime:Bool = false
     @Published var intervalTimer: Timer?
-    @Published  var isSetComplete: Bool = false
-    @Published  var kg: String = ""
-    @Published  var reps: String = ""
+    @Published var isSetComplete: Bool = false
+    @Published var kg: String = ""
+    @Published var reps: String = ""
     
     init(){
         getItem()
         loadTimer()
-
     }
     
 
@@ -102,7 +100,6 @@ class ListViewModel:ObservableObject{
     }
  
 
-    
     func getFormattedDate() -> String {
            let dateFormatter = DateFormatter()
            dateFormatter.dateStyle = .medium
@@ -130,7 +127,6 @@ class ListViewModel:ObservableObject{
         }
     }
 
-    
 
     func startIntervalTimer() {
         intervalTimer?.invalidate()
@@ -146,6 +142,7 @@ class ListViewModel:ObservableObject{
             }
         }
     }
+    
     
     func restartTimer(){
         intervalTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in

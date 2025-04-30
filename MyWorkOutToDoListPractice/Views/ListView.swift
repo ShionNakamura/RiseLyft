@@ -8,7 +8,7 @@ struct ListView: View {
     @State var navigateToBreakTimeView: Bool = false
     @State var navigateToNextView: Bool = false
     @State var showConfirmationAlert: Bool = false
-    @State  var editMode: EditMode = .inactive
+    @State var editMode: EditMode = .inactive
     @State var isCollapsed: Bool = false
     var body: some View {
         NavigationStack {

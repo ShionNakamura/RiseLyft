@@ -85,7 +85,6 @@ struct CompleteView: View {
                     
                     Button {
                         navigateToNextView = true
-                        
                        
                     } label: {
                         Text("完了")

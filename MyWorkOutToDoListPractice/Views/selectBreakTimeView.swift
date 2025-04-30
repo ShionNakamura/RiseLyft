@@ -4,7 +4,7 @@ import SwiftUI
 struct SelectBreakTImeView: View{
     
     @State private var selectedMinute: Int = 1
-     @State private var selectedSecond: Int = 0
+    @State private var selectedSecond: Int = 0
     @State var navigateToNextView: Bool = false
     @EnvironmentObject var listViewModel: ListViewModel
     
@@ -17,7 +17,7 @@ struct SelectBreakTImeView: View{
                      .font(.title)
                      .fontWeight(.bold)
                      .padding()
-                 
+            
                  Text("\(selectedMinute)分 : \(String(format: "%02d", selectedSecond))秒")
                      .font(.largeTitle)
                      .fontWeight(.bold)

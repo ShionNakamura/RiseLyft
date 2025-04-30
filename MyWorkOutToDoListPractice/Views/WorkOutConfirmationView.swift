@@ -75,7 +75,7 @@ struct WorkOutConfirmationView: View {
                     .alert( isPresented:$showConfirmationAlert ){
                                Alert(
                                    title: Text("最終確認"),
-                                   message: Text("全てのご自身の情報が間違ってないですか。"),
+                                   message: Text("あなたが選んだ種目に間違いないですか。"),
                                    primaryButton: .destructive(Text("決定")) {
                                        navigateToNextView.toggle()
                                                    },
