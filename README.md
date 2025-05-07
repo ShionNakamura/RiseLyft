@@ -42,7 +42,7 @@ https://github.com/user-attachments/assets/3604841d-e656-4573-a118-10b9d17c5970
 - **データ管理:** UserDefaults
 - **アーキテクチャ:** MVVM
 
-
+今後取り入れたい機能
 ---
 
 - カレンダー機能による過去・未来のトレーニング履歴管理
