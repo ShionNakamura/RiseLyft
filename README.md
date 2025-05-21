@@ -65,7 +65,7 @@ A. ぜひご意見をお聞かせください！上記のメールアドレス�
 お問い合わせ
 --
 バグ報告やフィードバック等は、以下のフォームから送信できます。  
-email: shionnakamura0120@gmail.com
+📩 email: shionnakamura0120@gmail.com
 
 📲 アプリのダウンロードはこちらから 
 --
