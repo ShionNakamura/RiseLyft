@@ -28,7 +28,7 @@
 
 
 
-デモ動画
+🎥 デモ動画
 ---
 
 https://github.com/user-attachments/assets/3604841d-e656-4573-a118-10b9d17c5970
