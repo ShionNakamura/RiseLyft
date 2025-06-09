@@ -6,17 +6,70 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
+//struct MyWorkOutToDoListPracticeApp: App {
+//    @StateObject var listViewModel:ListViewModel = ListViewModel()
+//    var body: some Scene {
+//        WindowGroup {
+//            NavigationStack{
+//                ListView()
+//            }
+//                .environmentObject(listViewModel)
+//        }
+//    }
+//}
+
+
+//struct PersistenceController {
+//    static let shared = PersistenceController()
+//
+//    let container: NSPersistentContainer
+//
+//    init() {
+//        container = NSPersistentContainer(name: "MigrationManager") // ← .xcdatamodeldのファイル名
+//        container.loadPersistentStores { _, error in
+//            if let error = error {
+//                fatalError("Unresolved error \(error)")
+//            }
+//        }
+//    }
+//}
+
+
+
 struct MyWorkOutToDoListPracticeApp: App {
-    @StateObject var listViewModel:ListViewModel = ListViewModel()
+    let persistenceController = PersistenceController.shared
+    @StateObject var listViewModel: ListViewModel = ListViewModel()
+
     var body: some Scene {
         WindowGroup {
-            NavigationStack{
+            NavigationStack {
                 ListView()
+                    .onAppear {
+                        MigrationManager.migrateIfNeeded(context: persistenceController.container.viewContext)
+                    }
             }
-                .environmentObject(listViewModel)
+            .environmentObject(listViewModel)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
+
+struct PersistenceController {
+    static let shared = PersistenceController()
+
+    let container: NSPersistentContainer
+
+    init() {
+        container = NSPersistentContainer(name: "MigrationManager") // .xcdatamodeldの名前に合わせる
+        container.loadPersistentStores { _, error in
+            if let error = error {
+                fatalError("Unresolved error \(error)")
+            }
+        }
+    }
+}
+
 
