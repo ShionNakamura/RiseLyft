@@ -48,7 +48,7 @@ https://github.com/user-attachments/assets/3604841d-e656-4573-a118-10b9d17c5970
 - カレンダー機能による過去・未来のトレーニング履歴管理
 - トレーニングリマインダー通知
 
-アップデート
+✅アップデート
 --
 - **データ管理のUserDefaultsからCore Dataに変更しました**
   
